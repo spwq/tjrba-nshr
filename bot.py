@@ -75,8 +75,7 @@ async def handle_all_messages(update: Update, context: ContextTypes.DEFAULT_TYPE
         
         status = await update.message.reply_text("📥 جاري تحميل الفيديو من تليجرام...")
         file = await video.get_file()
-        await file.download_to_drive(video_path)
-
+        await file.download_to_drive(custom_path=video_path)
         # جلب الحسابات المسجلة من المجلد
         accounts = glob.glob(f"{SESSIONS_DIR}/*.json")
         if not accounts:
